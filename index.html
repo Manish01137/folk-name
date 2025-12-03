@@ -21,151 +21,148 @@
 
     <!-- Header -->
     <header class="site-header">
-        <div class="header-container">
-            
-            <div class="logo">
-                <img src="logo.png" alt="FolkLane Logo">
-            </div>
+      <div class="header-container">
     
-            <!-- Desktop Navigation -->
-            <nav class="nav-links">
-                <a href="#">Services</a>
-                <a href="#">Work</a>
-                <a href="#">Pricing</a>
-                <a href="#">About</a>
-                <a href="#">FAQ</a>
-                <button class="btn talk-btn">Let's Talk</button>
-            </nav>
+          <!-- Logo -->
+          <a href="#" class="logo">
+              <img src="logo.png" alt="FolkLane Logo">
+          </a>
     
-            <!-- Mobile Menu Toggle -->
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+          <!-- Desktop Nav -->
+          <nav class="nav-links">
+              <a href="#">Services</a>
+              <a href="#">Work</a>
+              <a href="#">Pricing</a>
+              <a href="#">About</a>
+              <a href="#">FAQ</a>
+              <button class="btn talk-btn">Let's Talk</button>
+          </nav>
     
-        </div>
+          <!-- Mobile Hamburger -->
+          <div id="hamburger" class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
     
-        <!-- Mobile Menu -->
-        <nav class="mobile-nav">
-            <a href="#">Services</a>
-            <a href="#">Work</a>
-            <a href="#">Pricing</a>
-            <a href="#">About</a>
-            <a href="#">FAQ</a>
-            <button class="btn talk-btn">Let's Talk</button>
-        </nav>
+      </div>
+    
+      <!-- Mobile Menu -->
+      <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+          <a href="#">Services</a>
+          <a href="#">Work</a>
+          <a href="#">Pricing</a>
+          <a href="#">About</a>
+          <a href="#">FAQ</a>
+          <button class="btn talk-btn">Let's Talk</button>
+      </nav>
     </header>
     
-
-    <!-- HERO SECTION -->
+    <!-- HERO (replace existing hero) -->
     <section class="hero">
-        <div class="hero-content">
+      <!-- canvas for particles -->
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
     
-            <h3 class="badge">Full-Service Digital Agency</h3>
+      <div class="hero-content">
+          <h3 class="badge" id="badge">Full-Service Digital Agency</h3>
     
-            <h1 class="hero-title">
-                Empowering Brands <br>
-                <span class="gradient-text">Under One Roof</span>
-            </h1>
+          <h1 class="hero-title" id="heroTitle">
+              Empowering Brands <br>
+              <span class="gradient-text" id="gradientText">Under One Roof</span>
+          </h1>
     
-            <p class="hero-subtext">
-                We craft digital experiences that captivate, convert, and create lasting impressions.
-                Your vision, our expertise.
-            </p>
+          <p class="hero-subtext" id="heroText">
+              We craft digital experiences that captivate, convert, and create lasting impressions.
+              Your vision, our expertise.
+          </p>
     
-            <div class="hero-buttons">
-                <button class="btn primary">Start Your Project →</button>
-                <button class="btn outline">View Our Work</button>
-            </div>
+          <div class="hero-buttons" id="heroButtons">
+              <button class="btn primary magnetic">Start Your Project →</button>
+              <button class="btn outline magnetic">View Our Work</button>
+          </div>
+      </div>
     
-        </div>
-    
-        <!-- Floating Shapes -->
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
+      <!-- Floating shapes (decor) -->
+      <div class="shape shape1 parallax"></div>
+      <div class="shape shape2 parallax"></div>
+      <div class="shape shape3 parallax"></div>
     </section>
+    
     
 
     <!-- SERVICES SECTION -->
     <section class="services-section" id="services">
 
-        <p class="section-tag fade-up">WHAT WE DO</p>
-    
-        <h2 class="services-title fade-up">
-            Services That <span class="gradient-text">Transform</span>
-        </h2>
-    
-        <p class="services-subtext fade-up">
-            We blend creativity with technology to deliver exceptional digital experiences.
-        </p>
-    
-        <div class="services-grid">
-    
-            <!-- Card 1 -->
-            <div class="service-card magnetic">
-                <div class="icon-box icon1">
-                    <i class="service-icon">🎨</i>
-                </div>
-                <h3>Brand Design</h3>
-                <p>We craft unique visual identities that resonate with your audience and stand the test of time.</p>
-    
-                <ul>
-                    <li>Logo Design</li>
-                    <li>Brand Guidelines</li>
-                    <li>Visual Identity</li>
-                    <li>Brand Strategy</li>
-                </ul>
-            </div>
-    
-            <!-- Card 2 -->
-            <div class="service-card magnetic">
-                <div class="icon-box icon2">
-                    <i class="service-icon">💻</i>
-                </div>
-                <h3>Web Development</h3>
-                <p>Custom-built, high-performance websites and applications that drive results and engage users.</p>
-    
-                <ul>
-                    <li>Custom Websites</li>
-                    <li>Web Applications</li>
-                    <li>E-commerce</li>
-                    <li>CMS Solutions</li>
-                </ul>
-            </div>
-    
-            <!-- Card 3 -->
-            <div class="service-card magnetic">
-                <div class="icon-box icon3">
-                    <i class="service-icon">📣</i>
-                </div>
-                <h3>Digital Marketing</h3>
-                <p>Strategic campaigns that amplify your brand's voice and connect you with your ideal customers.</p>
-    
-                <ul>
-                    <li>SEO Optimization</li>
-                    <li>Social Media</li>
-                    <li>Content Strategy</li>
-                    <li>PPC Campaigns</li>
-                </ul>
-            </div>
-    
-        </div>
-    
-    </section>
+      <!-- Background glow -->
+      <div class="services-glow"></div>
+  
+      <p class="section-tag fade-up">WHAT WE DO</p>
+  
+      <h2 class="services-title fade-up">
+          Services That <span class="gradient-text">Transform</span>
+      </h2>
+  
+      <p class="services-subtext fade-up">
+          We blend creativity with technology to deliver exceptional digital experiences.
+      </p>
+  
+      <div class="services-grid">
+  
+          <!-- Card 1 -->
+          <div class="service-card magnetic service-tilt">
+              <div class="icon-box icon1"><i class="service-icon">🎨</i></div>
+              <h3>Brand Design</h3>
+              <p>We craft unique visual identities that resonate with your audience and stand the test of time.</p>
+              <ul>
+                  <li>Logo Design</li>
+                  <li>Brand Guidelines</li>
+                  <li>Visual Identity</li>
+                  <li>Brand Strategy</li>
+              </ul>
+          </div>
+  
+          <!-- Card 2 -->
+          <div class="service-card magnetic service-tilt">
+              <div class="icon-box icon2"><i class="service-icon">💻</i></div>
+              <h3>Web Development</h3>
+              <p>Custom-built, high-performance websites and applications that drive results and engage users.</p>
+              <ul>
+                  <li>Custom Websites</li>
+                  <li>Web Applications</li>
+                  <li>E-commerce</li>
+                  <li>CMS Solutions</li>
+              </ul>
+          </div>
+  
+          <!-- Card 3 -->
+          <div class="service-card magnetic service-tilt">
+              <div class="icon-box icon3"><i class="service-icon">📣</i></div>
+              <h3>Digital Marketing</h3>
+              <p>Strategic campaigns that amplify your brand's voice and connect you with your ideal customers.</p>
+              <ul>
+                  <li>SEO Optimization</li>
+                  <li>Social Media</li>
+                  <li>Content Strategy</li>
+                  <li>PPC Campaigns</li>
+              </ul>
+          </div>
+  
+      </div>
+  
+  </section>
+  
     
 
      <!-- why chose us -->
 
     <section class="why-section">
-        <p class="why-badge">WHY CHOOSE US</p>
+        <p class="why-badge fade-up">WHY CHOOSE US</p>
     
-        <h2 class="why-title">
+        <h2 class="why-title fade-up">
             We're <span class="gradient-text">Different</span>
         </h2>
     
-        <p class="why-subtext">
+        <p class="why-subtext fade-up">
             Here's what sets us apart from the rest.
         </p>
     
@@ -176,17 +173,17 @@
                 <p>Projects Completed</p>
             </div>
         
-            <div class="stat-box">
+            <div class="stat-box fade-up">
                 <h3 class="count" data-count="98" data-symbol="%">0</h3>
                 <p>Client Satisfaction</p>
             </div>
         
-            <div class="stat-box">
+            <div class="stat-box fade-up">
                 <h3 class="count" data-count="12" data-symbol="+">0</h3>
                 <p>Years Experience</p>
             </div>
         
-            <div class="stat-box">
+            <div class="stat-box fade-up">
                 <h3 class="count" data-count="45" data-symbol="+">0</h3>
                 <p>Team Members</p>
             </div>
