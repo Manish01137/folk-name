@@ -40,50 +40,55 @@
         </div>
 
         <!-- FORM -->
-        <form class="talk-form slide-up">
+        <form class="talk-form slide-up"
+              action="https://api.web3forms.com/submit"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <!-- Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="6eff564c-abf8-4068-8ec7-bb0d01c90214">
+
+            <!-- Hidden Interest -->
+            <input type="hidden" name="interest" id="interestField">
 
             <div class="form-row">
                 <div class="input-wrapper">
-                    <input type="text" required placeholder=" ">
+                    <input type="text" name="first_name" required placeholder=" ">
                     <label>First Name*</label>
                     <span class="underline"></span>
                 </div>
 
                 <div class="input-wrapper">
-                    <input type="text" required placeholder=" ">
+                    <input type="text" name="last_name" required placeholder=" ">
                     <label>Last Name*</label>
                     <span class="underline"></span>
                 </div>
 
                 <div class="input-wrapper">
-                    <input type="email" required placeholder=" ">
+                    <input type="email" name="email" required placeholder=" ">
                     <label>Email*</label>
                     <span class="underline"></span>
                 </div>
             </div>
 
             <div class="input-wrapper">
-                <input type="text" placeholder=" ">
+                <input type="text" name="budget" placeholder=" ">
                 <label>Budget (₹)</label>
                 <span class="underline"></span>
                 <small>More info about typical budgets <a href="#">here</a>.</small>
             </div>
 
-            <div class="file-wrapper">
-                <label><i class="fas fa-paperclip"></i> Attachments</label>
-                <input type="file" id="fileInput">
-                <span id="fileName">No file selected</span>
-            </div>
+      
 
             <div class="input-wrapper">
-                <textarea rows="4" placeholder=" "></textarea>
+                <textarea rows="4" name="message" placeholder=" "></textarea>
                 <label>Message</label>
                 <span class="underline"></span>
             </div>
 
             <div class="checkbox-row fade-in">
-                <label><input type="checkbox"> I want monthly updates.</label>
-                <label><input type="checkbox"> I agree to the privacy policy.</label>
+                <label><input type="checkbox" name="monthly_updates" value="Yes"> I want monthly updates.</label>
+                <label><input type="checkbox" name="privacy_policy" value="Yes" required> I agree to the privacy policy.</label>
             </div>
 
             <button type="submit" class="submit-btn pulse">Submit →</button>
@@ -91,13 +96,18 @@
         </form>
     </div>
 </section>
+
 <script>
 
+/* Tag Selection Toggle (SINGLE selection) */
+const interestField = document.getElementById("interestField");
+const tagButtons = document.querySelectorAll(".tag-btn");
 
-/* Tag Selection Toggle */
-document.querySelectorAll(".tag-btn").forEach(btn => {
+tagButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    btn.classList.toggle("active");
+    tagButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    interestField.value = btn.innerText.trim();
   });
 });
 
@@ -107,9 +117,33 @@ document.getElementById("fileInput").addEventListener("change", function () {
     this.files[0]?.name || "No file selected";
 });
 
+/* Custom Web3Forms Submission */
+document.querySelector(".talk-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const form = this;
+
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert("Thank you! Your form has been submitted.");
+            form.reset();
+            interestField.value = "";
+            document.getElementById("fileName").innerText = "No file selected";
+            tagButtons.forEach(b => b.classList.remove("active"));
+        } else {
+            alert("There was an error. Please try again.");
+        }
+    })
+    .catch(() => alert("Network error. Please try again."));
+});
+
 /* Scroll-trigger animations */
 const animatedEls = document.querySelectorAll(".fade-in, .slide-up");
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -117,7 +151,6 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
-
 animatedEls.forEach(el => {
   el.style.animationPlayState = "paused";
   observer.observe(el);
@@ -145,6 +178,8 @@ function generateParticles() {
   }
 }
 generateParticles();
+
 </script>
+
 </body>
 </html>
