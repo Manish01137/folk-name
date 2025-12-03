@@ -75,13 +75,13 @@
                 <small>More info about typical budgets <a href="#">here</a>.</small>
             </div>
 
-            <!-- PLAN DROPDOWN -->
+            <!-- PLAN DROPDOWN (UPDATED VALUES) -->
             <div class="input-wrapper">
                 <select name="plan" id="planSelect" class="plan-select">
                     <option value="">Select a Plan</option>
-                    <option value="Starter">Starter</option>
-                    <option value="Professional">Professional</option>
-                    <option value="Enterprise">Enterprise</option>
+                    <option value="Basic">Basic</option>
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
                 </select>
                 <label style="top:-12px;">Choose a Plan</label>
                 <span class="underline"></span>
@@ -143,17 +143,18 @@ planSelect.addEventListener("change", () => {
 
     let price = "";
 
-    if (planSelect.value === "Starter") price = "₹5,999 + GST";
-    if (planSelect.value === "Professional") price = "₹8,500 + GST";
-    if (planSelect.value === "Enterprise") price = "₹12,999 + GST";
+    // UPDATED prices matching your new plans
+    if (planSelect.value === "Basic") price = "₹8,500 + GST";
+    if (planSelect.value === "Standard") price = "₹11,500 + GST";
+    if (planSelect.value === "Premium") price = "₹16,500 + GST";
 
-    /* ---- NEW FEATURE: AUTO-FILL BUDGET ---- */
+    /* ---- AUTO-FILL BUDGET ---- */
     if (!budgetField.value) {
         budgetField.value = price;
-        budgetField.readOnly = true;  // user cannot change
+        budgetField.readOnly = true;
     }
 
-    /* ---- Price added in message ONLY ONCE ---- */
+    /* ---- PRICE added in message ONLY ONCE ---- */
     if (!priceAlreadyAdded) {
         messageBox.value += "Price: " + price + ", ";
         priceAlreadyAdded = true;
