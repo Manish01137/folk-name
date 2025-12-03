@@ -6,6 +6,7 @@
     "compat-api/css": "off",
     "axe/forms": "off",
     "axe/text-alternatives": "off",
-    "button-type": "off"
+    "button-type": "off",
+    "axe/name-role-value": "off"
   }
 }

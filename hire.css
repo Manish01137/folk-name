@@ -1,0 +1,448 @@
+/* BASE SECTION */
+.talk-section {
+    padding: 100px 40px;
+    background: #0a0a0a;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* GRADIENT BACKGROUND */
+  .talk-gradient {
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(circle, #ff2d2d55, #000);
+    right: -40%;
+    bottom: -10%;
+    filter: blur(90px);
+    animation: bgFloat 6s infinite alternate ease-in-out;
+  }
+  @keyframes bgFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-25px); }
+  }
+  
+  /* CONTAINER */
+  .talk-container {
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* TITLE */
+  .talk-title {
+    font-size: 48px;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  
+  /* TAG BUTTONS */
+  .talk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 50px;
+  }
+  
+  .tag-btn {
+    padding: 10px 24px;
+    border: 1px solid #ffffff40;
+    background: transparent;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .tag-btn:hover,
+  .tag-btn.active {
+    border-color: #ff4b4b;
+    box-shadow: 0 0 15px rgba(255,75,75,0.5);
+    color: #ff4b4b;
+    transform: translateY(-4px);
+  }
+  
+  /* FORM */
+  .talk-form {
+    margin-top: 20px;
+  }
+  
+  /* INPUT WITH FLOATING LABEL */
+  .input-wrapper {
+    position: relative;
+    margin-bottom: 35px;
+    flex: 1;
+  }
+  
+  .input-wrapper input,
+  .input-wrapper textarea {
+    width: 100%;
+    padding: 12px 0 6px 0;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff30;
+    color: white;
+    outline: none;
+  }
+  
+  .input-wrapper label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #aaaaaa;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+  
+  .input-wrapper input:focus + label,
+  .input-wrapper textarea:focus + label,
+  .input-wrapper input:not(:placeholder-shown) + label,
+  .input-wrapper textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #ff4b4b;
+  }
+  
+  /* Animated underline */
+  .underline {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 2px;
+    width: 0%;
+    background: #ff4b4b;
+    transition: 0.3s ease;
+  }
+  
+  .input-wrapper input:focus ~ .underline,
+  .input-wrapper textarea:focus ~ .underline {
+    width: 100%;
+  }
+  
+  /* FILE INPUT */
+  .file-wrapper {
+    margin-bottom: 25px;
+  }
+  
+  .file-wrapper label {
+    font-size: 16px;
+  }
+  
+  .file-wrapper input {
+    display: none;
+  }
+  
+  #fileName {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  /* CHECKBOXES */
+  .checkbox-row {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  /* SUBMIT BUTTON */
+  .submit-btn {
+    margin-top: 35px;
+    padding: 14px 40px;
+    border-radius: 40px;
+    background: #ff4b4b;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: #ff6b6b;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255,75,75,0.5);
+  }
+  
+  /* PULSE EFFECT */
+  .pulse {
+    animation: pulseAnim 2s infinite;
+  }
+  @keyframes pulseAnim {
+    0% { box-shadow: 0 0 0 rgba(255,75,75,0.4); }
+    50% { box-shadow: 0 0 15px rgba(255,75,75,0.7); }
+    100% { box-shadow: 0 0 0 rgba(255,75,75,0.4); }
+  }
+  
+  /* SLIDE + FADE */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  
+  .slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1.2s forwards;
+  }
+  @keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .talk-title { font-size: 32px; }
+    .talk-section { padding: 60px 20px; }
+    .form-row { flex-direction: column; }
+  }
+  
+  /* ------------------ MAIN SECTION ------------------ */
+body {
+    margin: 0;
+    background: #0a0a0a;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+  }
+  
+  .talk-section {
+    position: relative;
+    padding: 100px 40px;
+    min-height: 120vh;
+    overflow: hidden;
+  }
+  
+  /* Gradient Background */
+  .talk-gradient {
+    position: absolute;
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(circle, #ff3b3b44, #000);
+    right: -40%;
+    bottom: -10%;
+    filter: blur(80px);
+    animation: gradientMove 7s infinite alternate ease-in-out;
+    z-index: 0;
+  }
+  
+  @keyframes gradientMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-40px); }
+  }
+  
+  /* Glowing Blobs */
+  .blob {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, #ff2a2a44, transparent 70%);
+    filter: blur(120px);
+    animation: blobFloat 10s infinite alternate ease-in-out;
+    z-index: 0;
+  }
+  
+  .blob1 { top: 15%; left: -15%; }
+  .blob2 { bottom: 10%; right: -15%; }
+  
+  @keyframes blobFloat {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-40px) scale(1.1); }
+  }
+  
+  /* Container */
+  .talk-container {
+    max-width: 1100px;
+    margin: auto;
+    position: relative;
+    z-index: 5;
+  }
+  
+  /* Title */
+  .talk-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+  
+  /* Tag Buttons */
+  .talk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 50px;
+  }
+  
+  .tag-btn {
+    padding: 10px 24px;
+    border-radius: 40px;
+    border: 1px solid #ffffff35;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+  
+  .tag-btn:hover,
+  .tag-btn.active {
+    border-color: #ff4b4b;
+    box-shadow: 0 0 15px rgba(255,75,75,0.5);
+    color: #ff4b4b;
+    transform: translateY(-4px);
+  }
+  
+  /* Form */
+  .talk-form {
+    margin-top: 40px;
+  }
+  
+  /* Row of 3 inputs */
+  .form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Floating Input Wrapper */
+  .input-wrapper {
+    position: relative;
+    flex: 1;
+    margin-bottom: 35px;
+  }
+  
+  .input-wrapper input,
+  .input-wrapper textarea {
+    width: 100%;
+    padding: 12px 0 6px 0;
+    font-size: 18px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff35;
+    color: white;
+    outline: none;
+  }
+  
+  .input-wrapper label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: #bfbfbf;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+  
+  input:focus + label,
+  textarea:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: #ff4b4b;
+  }
+  
+  /* Underline animation */
+  .underline {
+    position: absolute;
+    bottom: -1px;
+    height: 2px;
+    width: 0;
+    background: #ff4b4b;
+    transition: 0.3s ease;
+  }
+  
+  input:focus ~ .underline,
+  textarea:focus ~ .underline {
+    width: 100%;
+  }
+  
+  /* File Upload */
+  .file-wrapper {
+    margin-bottom: 25px;
+  }
+  
+  .file-wrapper label {
+    font-size: 16px;
+  }
+  
+  #fileName {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  /* Checkboxes */
+  .checkbox-row {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  /* Submit Button */
+  .submit-btn {
+    margin-top: 35px;
+    padding: 14px 40px;
+    border-radius: 35px;
+    background: #ff4b4b;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: #ff6b6b;
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(255,75,75,0.5);
+  }
+  
+  /* Pulse Animation */
+  .pulse {
+    animation: pulseAnim 2s infinite;
+  }
+  
+  @keyframes pulseAnim {
+    0% { box-shadow: 0 0 0px rgba(255,75,75,0.4); }
+    50% { box-shadow: 0 0 14px rgba(255,75,75,0.8); }
+    100% { box-shadow: 0 0 0px rgba(255,75,75,0.4); }
+  }
+  
+  /* Scroll animations */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+  
+  .slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1.2s forwards;
+  }
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .talk-title { font-size: 34px; }
+    .talk-section { padding: 60px 20px; }
+    .form-row { flex-direction: column; }
+  }
+  

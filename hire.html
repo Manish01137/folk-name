@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let’s Talk – Folklane</title>
+<link rel="stylesheet" href="hire.css">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+<section class="talk-section">
+
+    <!-- Background elements -->
+    <div id="particles-wrap"></div>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+
+    <!-- Gradient -->
+    <div class="talk-gradient"></div>
+
+    <div class="talk-container">
+
+        <h2 class="talk-title fade-in">
+            I am interested in :
+        </h2>
+
+        <!-- Tags -->
+        <div class="talk-tags fade-in">
+            <button class="tag-btn">A new website</button>
+            <button class="tag-btn">Branding</button>
+            <button class="tag-btn">Motion graphics</button>
+            <button class="tag-btn">E-Commerce</button>
+            <button class="tag-btn">Development</button>
+            <button class="tag-btn">On-going support</button>
+            <button class="tag-btn">App from scratch</button>
+        </div>
+
+        <!-- FORM -->
+        <form class="talk-form slide-up">
+
+            <div class="form-row">
+                <div class="input-wrapper">
+                    <input type="text" required placeholder=" ">
+                    <label>First Name*</label>
+                    <span class="underline"></span>
+                </div>
+
+                <div class="input-wrapper">
+                    <input type="text" required placeholder=" ">
+                    <label>Last Name*</label>
+                    <span class="underline"></span>
+                </div>
+
+                <div class="input-wrapper">
+                    <input type="email" required placeholder=" ">
+                    <label>Email*</label>
+                    <span class="underline"></span>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <input type="text" placeholder=" ">
+                <label>Budget (₹)</label>
+                <span class="underline"></span>
+                <small>More info about typical budgets <a href="#">here</a>.</small>
+            </div>
+
+            <div class="file-wrapper">
+                <label><i class="fas fa-paperclip"></i> Attachments</label>
+                <input type="file" id="fileInput">
+                <span id="fileName">No file selected</span>
+            </div>
+
+            <div class="input-wrapper">
+                <textarea rows="4" placeholder=" "></textarea>
+                <label>Message</label>
+                <span class="underline"></span>
+            </div>
+
+            <div class="checkbox-row fade-in">
+                <label><input type="checkbox"> I want monthly updates.</label>
+                <label><input type="checkbox"> I agree to the privacy policy.</label>
+            </div>
+
+            <button type="submit" class="submit-btn pulse">Submit →</button>
+
+        </form>
+    </div>
+</section>
+<script>
+
+
+/* Tag Selection Toggle */
+document.querySelectorAll(".tag-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("active");
+  });
+});
+
+/* File Input Name Display */
+document.getElementById("fileInput").addEventListener("change", function () {
+  document.getElementById("fileName").textContent =
+    this.files[0]?.name || "No file selected";
+});
+
+/* Scroll-trigger animations */
+const animatedEls = document.querySelectorAll(".fade-in, .slide-up");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = "running";
+    }
+  });
+});
+
+animatedEls.forEach(el => {
+  el.style.animationPlayState = "paused";
+  observer.observe(el);
+});
+
+/* PARTICLES Background */
+function generateParticles() {
+  const wrap = document.getElementById("particles-wrap");
+
+  for (let i = 0; i < 45; i++) {
+    let particle = document.createElement("span");
+    particle.classList.add("particle");
+
+    let size = Math.random() * 12 + 6;
+    particle.style.width = size + "px";
+    particle.style.height = size + "px";
+
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.top = Math.random() * 100 + "%";
+
+    let duration = Math.random() * 6 + 6;
+    particle.style.animationDuration = duration + "s";
+
+    wrap.appendChild(particle);
+  }
+}
+generateParticles();
+</script>
+</body>
+</html>

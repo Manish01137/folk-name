@@ -6,6 +6,7 @@
     <title>Folklane Agency</title>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- GSAP CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -25,17 +26,16 @@
     
           <!-- Logo -->
           <a href="#" class="logo">
-              <img src="logo.png" alt="FolkLane Logo">
+              <img src="whatlogo.jpeg" alt="FolkLane Logo">
           </a>
     
           <!-- Desktop Nav -->
           <nav class="nav-links">
-              <a href="#">Services</a>
-              <a href="#">Work</a>
-              <a href="#">Pricing</a>
-              <a href="#">About</a>
-              <a href="#">FAQ</a>
-              <button class="btn talk-btn">Let's Talk</button>
+             
+            <button class="btn talk-btn" onclick="window.location.href='hire.html'">
+              Hire Us
+          </button>
+          
           </nav>
     
           <!-- Mobile Hamburger -->
@@ -54,7 +54,10 @@
           <a href="#">Pricing</a>
           <a href="#">About</a>
           <a href="#">FAQ</a>
-          <button class="btn talk-btn">Let's Talk</button>
+          <button class="btn talk-btn" onclick="window.location.href='hire.html'">
+            Hire Us
+        </button>
+        
       </nav>
     </header>
     
@@ -406,106 +409,98 @@
  
     <!-- faq -->
 
-
     <section class="faq-section">
-        <div class="faq-container">
-      
-          <!-- Left Content -->
-          <div class="faq-left">
-            <h5 class="faq-subtitle">FAQ</h5>
-            <h2 class="faq-title">Questions?<br><span>We've Got Answers</span></h2>
-            <p class="faq-desc">
-              Can't find what you're looking for? Feel free to reach out and we'll be happy to help.
-            </p>
-      
-            <div class="faq-contact-box">
-              <h4>Still have questions?</h4>
-              <p>Contact us at hello@folklane.com</p>
-            </div>
+      <div class="faq-container">
+    
+        <!-- Left -->
+        <div class="faq-left">
+          <h5 class="faq-subtitle">FAQ</h5>
+          <h2 class="faq-title">Questions?<br><span>We've Got Answers</span></h2>
+          <p class="faq-desc">
+            Can't find what you're looking for? Feel free to reach out and we'll be happy to help.
+          </p>
+    
+          <div class="faq-contact-box">
+            <h4>Still have questions?</h4>
+            <p>Contact us at hello@folklane.com</p>
           </div>
-      
-          <!-- Right Accordion -->
-          <div class="faq-right">
-      
-            <!-- Accordion 1 -->
-            <div class="faq-item">
-              <input type="checkbox" id="faq1">
-              <label for="faq1" class="faq-question">
-                What is your typical project timeline?
-                <span class="faq-icon"></span>
-              </label>
-              <div class="faq-answer">
-                Our standard website projects take 4–8 weeks depending on scope, design complexity, and feedback turnaround.
-              </div>
-            </div>
-      
-            <!-- Accordion 2 -->
-            <div class="faq-item">
-              <input type="checkbox" id="faq2">
-              <label for="faq2" class="faq-question">
-                Do you offer ongoing support and maintenance?
-                <span class="faq-icon"></span>
-              </label>
-              <div class="faq-answer">
-                Yes! We offer monthly support plans, updates, backups, and priority fixes.
-              </div>
-            </div>
-      
-            <!-- Accordion 3 -->
-            <div class="faq-item">
-              <input type="checkbox" id="faq3">
-              <label for="faq3" class="faq-question">
-                What technologies do you work with?
-                <span class="faq-icon"></span>
-              </label>
-              <div class="faq-answer">
-                We use modern frameworks like React, Next.js, Shopify, WordPress, and custom backend solutions.
-              </div>
-            </div>
-      
-            <!-- Accordion 4 -->
-            <div class="faq-item">
-              <input type="checkbox" id="faq4">
-              <label for="faq4" class="faq-question">
-                How do you handle project communication?
-                <span class="faq-icon"></span>
-              </label>
-              <div class="faq-answer">
-                Through Slack, email, scheduled calls, and shared Notion/Google Drive for project tracking.
-              </div>
-            </div>
-      
-            <!-- Accordion 5 -->
-            <div class="faq-item">
-              <input type="checkbox" id="faq5">
-              <label for="faq5" class="faq-question">
-                What makes your agency different from others?
-                <span class="faq-icon"></span>
-              </label>
-              <div class="faq-answer">
-                We combine strategy, branding, UI/UX excellence, and technical expertise – all under one roof.
-              </div>
-            </div>
-      
-            <!-- Accordion 6 -->
-            <div class="faq-item">
-              <input type="checkbox" id="faq6">
-              <label for="faq6" class="faq-question">
-                Do you work with international clients?
-                <span class="faq-icon"></span>
-              </label>
-              <div class="faq-answer">
-                Yes! We work across time zones and have clients from the US, UK, Europe, and Asia.
-              </div>
-            </div>
-      
-          </div>
-      
         </div>
-      </section>
-      
+    
+        <!-- Right -->
+        <div class="faq-right">
+    
+          <!-- FAQ Item -->
+          <div class="faq-item">
+            <input type="checkbox" id="faq1">
+            <label for="faq1" class="faq-question">
+              What is your typical project timeline?
+              <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
+              Our standard website projects take 4–8 weeks depending on scope, design complexity, and feedback turnaround.
+            </div>
+          </div>
+    
+          <div class="faq-item">
+            <input type="checkbox" id="faq2">
+            <label for="faq2" class="faq-question">
+              Do you offer ongoing support and maintenance?
+              <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
+              Yes! We offer monthly support plans, updates, backups, and priority fixes.
+            </div>
+          </div>
+    
+          <div class="faq-item">
+            <input type="checkbox" id="faq3">
+            <label for="faq3" class="faq-question">
+              What technologies do you work with?
+              <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
+              We use modern frameworks like React, Next.js, Shopify, WordPress, and custom backend solutions.
+            </div>
+          </div>
+    
+          <div class="faq-item">
+            <input type="checkbox" id="faq4">
+            <label for="faq4" class="faq-question">
+              How do you handle project communication?
+              <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
+              Through Slack, email, scheduled calls, and shared Notion/Google Drive for project tracking.
+            </div>
+          </div>
+    
+          <div class="faq-item">
+            <input type="checkbox" id="faq5">
+            <label for="faq5" class="faq-question">
+              What makes your agency different from others?
+              <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
+              We combine strategy, branding, UI/UX excellence, and technical expertise – all under one roof.
+            </div>
+          </div>
+    
+          <div class="faq-item">
+            <input type="checkbox" id="faq6">
+            <label for="faq6" class="faq-question">
+              Do you work with international clients?
+              <span class="faq-icon"></span>
+            </label>
+            <div class="faq-answer">
+              Yes! We work across time zones and have clients from the US, UK, Europe, and Asia.
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
   <!-- what you want  -->
-  
   <section class="cta-section">
     <div class="cta-container">
   
@@ -523,31 +518,28 @@
       <!-- Buttons -->
       <div class="cta-buttons">
         <a href="#" class="cta-btn-primary">Schedule a Call →</a>
-        <a href="#" class="cta-btn-secondary">View Our Process</a>
+       
       </div>
   
       <!-- Contact Boxes -->
       <div class="cta-box-wrapper">
   
-        <!-- Email -->
-        <div class="cta-box">
-          <div class="cta-icon email-icon">✉️</div>
+        <div class="cta-box glass">
+          <div class="cta-icon">✉️</div>
           <h4>Email Us</h4>
-          <p>hello@folklane.com</p>
+          <p>folklaneservices09@gmail.com</p>
         </div>
   
-        <!-- Call -->
-        <div class="cta-box">
-          <div class="cta-icon call-icon">📞</div>
+        <div class="cta-box glass">
+          <div class="cta-icon">📞</div>
           <h4>Call Us</h4>
-          <p>+91 983834422</p>
+          <p>+91 9878283909</p>
         </div>
   
-        <!-- Location -->
-        <div class="cta-box">
-          <div class="cta-icon visit-icon">📍</div>
+        <div class="cta-box glass">
+          <div class="cta-icon">📍</div>
           <h4>Visit Us</h4>
-          <p>Punjab</p>
+          <p>37I chaithum lines, oldd cantt area, near botanical survey of India, Prayagraj, uttarapradesh 211002</p>
         </div>
   
       </div>
@@ -555,71 +547,75 @@
     </div>
   </section>
   
+  
 
     <!-- FOOTER -->
     <footer class="footer-section">
-        <div class="footer-container">
-      
-          <!-- LEFT COLUMN -->
-          <div class="footer-left">
-            <img src="logo.png" class="footer-logo" alt="Logo">
-      
-            <p class="footer-desc">
-              Your trusted partner for IT solutions. Crafting digital experiences that inspire, engage, and deliver results.
-            </p>
-      
-            <div class="footer-social">
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-behance"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-            </div>
+      <div class="footer-container">
+    
+        <!-- LEFT COLUMN -->
+        <div class="footer-left">
+          <img src="whatlogo.jpeg" class="footer-logo" alt="Logo">
+    
+          <p class="footer-desc">
+            Your trusted partner for IT solutions. Crafting digital experiences
+            that inspire, engage, and deliver results.
+          </p>
+    
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1D3keLda8X/">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          
+            <a href="https://www.instagram.com/folklane_09?igsh=c3FhN3owYjlkMjV3">
+              <i class="fab fa-instagram"></i>
+            </a>
           </div>
-      
-          <!-- MIDDLE COLUMNS -->
-          <div class="footer-columns">
-      
-            <div class="footer-col">
-              <h4>Services</h4>
-              <a href="#">Web Development</a>
-              <a href="#">Brand Design</a>
-              <a href="#">Digital Marketing</a>
-              <a href="#">UI/UX Design</a>
-            </div>
-      
-            <div class="footer-col">
-              <h4>Company</h4>
-              <a href="#">About Us</a>
-              <a href="#">Careers</a>
-              <a href="#">Blog</a>
-              <a href="#">Press</a>
-            </div>
-      
-            <div class="footer-col">
-              <h4>Resources</h4>
-              <a href="#">Case Studies</a>
-              <a href="#">Documentation</a>
-              <a href="#">Help Center</a>
-              <a href="#">Contact</a>
-            </div>
-      
-          </div>
-      
+          
         </div>
-      
-        <!-- Bottom Bar -->
-        <div class="footer-bottom">
-          <p>© 2024 Folklane IT Services. All rights reserved.</p>
-      
-          <div class="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
+    
+        <!-- MIDDLE COLUMNS -->
+        <div class="footer-columns">
+    
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#">Web Development</a>
+            <a href="#">Brand Design</a>
+            <a href="#">Digital Marketing</a>
+            <a href="#">UI/UX Design</a>
           </div>
+    
+          <div class="footer-col">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+            <a href="#">Press</a>
+          </div>
+    
+          <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#">Case Studies</a>
+            <a href="#">Documentation</a>
+            <a href="#">Help Center</a>
+            <a href="#">Contact</a>
+          </div>
+    
         </div>
-      </footer>
-      
+      </div>
+    
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p>© 2024 Folklane IT Services. All rights reserved.</p>
+    
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </footer>
+    
 
 <script src="script.js"></script>
 
