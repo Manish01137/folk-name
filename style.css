@@ -2243,3 +2243,157 @@ body{background:linear-gradient(180deg,var(--black-grad-1),var(--black-base)); c
     margin-left: 10px;
   }
 }
+/* Pricing Section */
+.pricing-section {
+  padding: 80px 20px;
+  background: #0b0b0b;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.pricing-subtitle {
+  color: #ff5b5b;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.pricing-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pricing-title span {
+  color: #ff5252;
+}
+
+.pricing-desc {
+  max-width: 500px;
+  margin: 0 auto 50px;
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* GRID */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* CARD */
+.pricing-card {
+  background: #161616;
+  padding: 35px 30px;
+  border-radius: 20px;
+  border: 1px solid #2a2a2a;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  border-color: #ff4d4d;
+}
+
+.pricing-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+/* Popular (middle card highlight) */
+.popular {
+  background: #1e1e1e;
+  border: 2px solid #ff5050;
+  transform: scale(1.03);
+}
+
+.popular-badge {
+  background: #ff4e4e;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Price */
+.price {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.price span {
+  color: #ff4c4c;
+  font-weight: 700;
+}
+
+.price small {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* List */
+.pricing-features {
+  text-align: left;
+  margin: 25px 0;
+  line-height: 1.7;
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.pricing-features li {
+  margin-bottom: 10px;
+}
+
+/* Button */
+.pricing-btn {
+  display: inline-block;
+  width: 100%;
+  background: #ff4b4b;
+  color: white;
+  padding: 14px 0;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.pricing-btn:hover {
+  background: #ff2727;
+}
+
+/* Special Button (middle card) */
+.pro-btn {
+  background: #ff4040;
+}
+/* Smooth floating hover (NO JS) */
+.service-card {
+  transition: 
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+/* Hover effect */
+.service-card:hover {
+  transform: translateY(-12px) scale(1.03) rotateX(2deg) rotateY(2deg);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+/* Optional: soften it on mobile */
+@media (max-width: 768px) {
+  .service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+}

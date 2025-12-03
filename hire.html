@@ -18,39 +18,35 @@
     <div id="particles-wrap"></div>
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
-
-    <!-- Gradient -->
     <div class="talk-gradient"></div>
 
     <div class="talk-container">
 
-        <h2 class="talk-title fade-in">
-            I am interested in :
-        </h2>
+        <h2 class="talk-title fade-in">I am interested in :</h2>
 
-        <!-- Tags -->
+        <!-- INTEREST TAGS -->
         <div class="talk-tags fade-in">
-            <button class="tag-btn">A new website</button>
-            <button class="tag-btn">Branding</button>
-            <button class="tag-btn">Motion graphics</button>
-            <button class="tag-btn">E-Commerce</button>
-            <button class="tag-btn">Development</button>
-            <button class="tag-btn">On-going support</button>
-            <button class="tag-btn">App from scratch</button>
+            <button class="tag-btn" data-value="A new website">A new website</button>
+            <button class="tag-btn" data-value="Branding">Branding</button>
+            <button class="tag-btn" data-value="Motion graphics">Motion graphics</button>
+            <button class="tag-btn" data-value="E-Commerce">E-Commerce</button>
+            <button class="tag-btn" data-value="Development">Development</button>
+            <button class="tag-btn" data-value="On-going support">On-going support</button>
+            <button class="tag-btn" data-value="App from scratch">App from scratch</button>
         </div>
 
         <!-- FORM -->
         <form class="talk-form slide-up"
               action="https://api.web3forms.com/submit"
-              method="POST"
-              enctype="multipart/form-data">
+              method="POST">
 
             <!-- Web3Forms Access Key -->
             <input type="hidden" name="access_key" value="6eff564c-abf8-4068-8ec7-bb0d01c90214">
 
-            <!-- Hidden Interest -->
+            <!-- Hidden interest field -->
             <input type="hidden" name="interest" id="interestField">
 
+            <!-- USER DETAILS -->
             <div class="form-row">
                 <div class="input-wrapper">
                     <input type="text" name="first_name" required placeholder=" ">
@@ -71,21 +67,34 @@
                 </div>
             </div>
 
+            <!-- BUDGET -->
             <div class="input-wrapper">
-                <input type="text" name="budget" placeholder=" ">
+                <input type="text" name="budget" id="budgetField" placeholder=" ">
                 <label>Budget (₹)</label>
                 <span class="underline"></span>
                 <small>More info about typical budgets <a href="#">here</a>.</small>
             </div>
 
-      
-
+            <!-- PLAN DROPDOWN -->
             <div class="input-wrapper">
-                <textarea rows="4" name="message" placeholder=" "></textarea>
+                <select name="plan" id="planSelect" class="plan-select">
+                    <option value="">Select a Plan</option>
+                    <option value="Starter">Starter</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Enterprise">Enterprise</option>
+                </select>
+                <label style="top:-12px;">Choose a Plan</label>
+                <span class="underline"></span>
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="input-wrapper">
+                <textarea rows="4" name="message" id="message" placeholder=" "></textarea>
                 <label>Message</label>
                 <span class="underline"></span>
             </div>
 
+            <!-- CHECKBOXES -->
             <div class="checkbox-row fade-in">
                 <label><input type="checkbox" name="monthly_updates" value="Yes"> I want monthly updates.</label>
                 <label><input type="checkbox" name="privacy_policy" value="Yes" required> I agree to the privacy policy.</label>
@@ -99,25 +108,61 @@
 
 <script>
 
-/* Tag Selection Toggle (SINGLE selection) */
-const interestField = document.getElementById("interestField");
+/* -----------------------------------------
+   INTEREST TAGS → AUTO FILL MESSAGE
+----------------------------------------- */
 const tagButtons = document.querySelectorAll(".tag-btn");
+const interestField = document.getElementById("interestField");
+const messageBox = document.getElementById("message");
 
 tagButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    tagButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-    interestField.value = btn.innerText.trim();
-  });
+    btn.addEventListener("click", () => {
+        tagButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const selected = btn.getAttribute("data-value");
+        interestField.value = selected;
+
+        messageBox.value += selected + ", ";
+    });
 });
 
-/* File Input Name Display */
-document.getElementById("fileInput").addEventListener("change", function () {
-  document.getElementById("fileName").textContent =
-    this.files[0]?.name || "No file selected";
+/* -----------------------------------------
+   PLAN + PRICE + BUDGET AUTO-FILL
+----------------------------------------- */
+const planSelect = document.getElementById("planSelect");
+const budgetField = document.getElementById("budgetField");
+let priceAlreadyAdded = false;
+
+planSelect.addEventListener("change", () => {
+
+    if (!planSelect.value) return;
+
+    // Always add plan name to message
+    messageBox.value += "Selected Plan: " + planSelect.value + ", ";
+
+    let price = "";
+
+    if (planSelect.value === "Starter") price = "₹5,999 + GST";
+    if (planSelect.value === "Professional") price = "₹8,500 + GST";
+    if (planSelect.value === "Enterprise") price = "₹12,999 + GST";
+
+    /* ---- NEW FEATURE: AUTO-FILL BUDGET ---- */
+    if (!budgetField.value) {
+        budgetField.value = price;
+        budgetField.readOnly = true;  // user cannot change
+    }
+
+    /* ---- Price added in message ONLY ONCE ---- */
+    if (!priceAlreadyAdded) {
+        messageBox.value += "Price: " + price + ", ";
+        priceAlreadyAdded = true;
+    }
 });
 
-/* Custom Web3Forms Submission */
+/* -----------------------------------------
+   WEB3 FORMS SUBMISSION
+----------------------------------------- */
 document.querySelector(".talk-form").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -131,9 +176,15 @@ document.querySelector(".talk-form").addEventListener("submit", function (e) {
     .then(data => {
         if (data.success) {
             alert("Thank you! Your form has been submitted.");
+
             form.reset();
+            messageBox.value = "";
             interestField.value = "";
-            document.getElementById("fileName").innerText = "No file selected";
+            planSelect.value = "";
+            budgetField.value = "";
+            budgetField.readOnly = false;
+            priceAlreadyAdded = false;
+
             tagButtons.forEach(b => b.classList.remove("active"));
         } else {
             alert("There was an error. Please try again.");
@@ -142,7 +193,9 @@ document.querySelector(".talk-form").addEventListener("submit", function (e) {
     .catch(() => alert("Network error. Please try again."));
 });
 
-/* Scroll-trigger animations */
+/* -----------------------------------------
+   SCROLL ANIMATIONS
+----------------------------------------- */
 const animatedEls = document.querySelectorAll(".fade-in, .slide-up");
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -156,7 +209,9 @@ animatedEls.forEach(el => {
   observer.observe(el);
 });
 
-/* PARTICLES Background */
+/* -----------------------------------------
+   PARTICLES BACKGROUND
+----------------------------------------- */
 function generateParticles() {
   const wrap = document.getElementById("particles-wrap");
 
