@@ -72,10 +72,9 @@
                 <input type="text" name="budget" id="budgetField" placeholder=" ">
                 <label>Budget (₹)</label>
                 <span class="underline"></span>
-               
             </div>
 
-            <!-- PLAN DROPDOWN (UPDATED VALUES) -->
+            <!-- PLAN DROPDOWN -->
             <div class="input-wrapper">
                 <select name="plan" id="planSelect" class="plan-select">
                     <option value="">Select a Plan</option>
@@ -83,7 +82,7 @@
                     <option value="Standard">Standard</option>
                     <option value="Premium">Premium</option>
                 </select>
-                <label style="top:-12px;">Choose a Plan</label>
+                <label style="top:-22px;">Choose a Plan</label>
                 <span class="underline"></span>
             </div>
 
@@ -109,23 +108,46 @@
 <script>
 
 /* -----------------------------------------
-   INTEREST TAGS → AUTO FILL MESSAGE
+   INTEREST TAGS → ONLY ONE IN MESSAGE
 ----------------------------------------- */
 const tagButtons = document.querySelectorAll(".tag-btn");
 const interestField = document.getElementById("interestField");
 const messageBox = document.getElementById("message");
 
+// All possible service names (used for removing previous selection)
+const serviceList = [
+    "A new website",
+    "Branding",
+    "Motion graphics",
+    "E-Commerce",
+    "Development",
+    "On-going support",
+    "App from scratch"
+];
+
 tagButtons.forEach(btn => {
     btn.addEventListener("click", () => {
+
+        // Highlight selected button
         tagButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
         const selected = btn.getAttribute("data-value");
+
+        // Set hidden field
         interestField.value = selected;
 
-        messageBox.value += selected + ", ";
+        // Remove previous service entries from message
+        let msg = messageBox.value;
+        serviceList.forEach(service => {
+            msg = msg.replace(new RegExp(service + ",? ?", "g"), "");
+        });
+
+        // Add the selected service at the top
+        messageBox.value = selected + ", " + msg.trim();
     });
 });
+
 
 /* -----------------------------------------
    PLAN + PRICE + BUDGET AUTO-FILL
@@ -138,28 +160,25 @@ planSelect.addEventListener("change", () => {
 
     if (!planSelect.value) return;
 
-    // Always add plan name to message
     messageBox.value += "Selected Plan: " + planSelect.value + ", ";
 
     let price = "";
 
-    // UPDATED prices matching your new plans
     if (planSelect.value === "Basic") price = "₹8,500 + GST";
     if (planSelect.value === "Standard") price = "₹11,500 + GST";
     if (planSelect.value === "Premium") price = "₹16,500 + GST";
 
-    /* ---- AUTO-FILL BUDGET ---- */
     if (!budgetField.value) {
         budgetField.value = price;
         budgetField.readOnly = true;
     }
 
-    /* ---- PRICE added in message ONLY ONCE ---- */
     if (!priceAlreadyAdded) {
         messageBox.value += "Price: " + price + ", ";
         priceAlreadyAdded = true;
     }
 });
+
 
 /* -----------------------------------------
    WEB3 FORMS SUBMISSION
@@ -194,6 +213,7 @@ document.querySelector(".talk-form").addEventListener("submit", function (e) {
     .catch(() => alert("Network error. Please try again."));
 });
 
+
 /* -----------------------------------------
    SCROLL ANIMATIONS
 ----------------------------------------- */
@@ -209,6 +229,7 @@ animatedEls.forEach(el => {
   el.style.animationPlayState = "paused";
   observer.observe(el);
 });
+
 
 /* -----------------------------------------
    PARTICLES BACKGROUND
